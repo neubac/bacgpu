@@ -92,7 +92,7 @@ sudo systemctl daemon-reload
   
 sudo systemctl restart docker
 ```  
-    *  Daemon configuration file  
+*  Daemon configuration file  
     
 ```
 sudo tee /etc/docker/daemon.json <<EOF
