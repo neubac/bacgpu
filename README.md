@@ -12,16 +12,22 @@ this is doc for CentOS os install nvidia GPU
     *  This url is for download 1650 GPU card . If you need other card please ask principal for driver
 4.  Install the required packages
     *  install gcc  
-    `yum install gcc`
+    ```
+    yum install gcc
+    ```
     *  install kernal-devel  
-    `yum install kernel-devel`  
-    `yum install "kernel-devel-uname-r == $(uname -r)"`
+    ```
+    yum install kernel-devel
+    yum install "kernel-devel-uname-r == $(uname -r)"
+    ```  
     #### If you see this message “No package kernel-devel-uname-r == 3.10.0-1062.el7.x86_64 available.” It is mean your kernel version devel can not find in repo . So please download your kernel version devel and install then install driver.
     #### You can use command “uname -a” to find your kernel version. Like this “Linux localhost.localdomain 3.10.0-1062.el7.x86_64 #1 SMP Wed Aug 7 18:08:02 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux”
     #### If you can not find devel package, please ask principal for it.
 5.  install nvidia driver
 6.  check nvidia-smi
-    `nvidia-smi`
+    ````
+    nvidia-smi
+    ```
     #### make sure command output show your graphics card information
     
     
