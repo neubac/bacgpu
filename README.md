@@ -25,9 +25,9 @@ this is doc for CentOS os install nvidia GPU
 5.  install nvidia driver
 6.  check nvidia-smi  
 
-    ````
-    nvidia-smi
-    ```  
+```
+nvidia-smi
+```
 #### make sure command output show your graphics card information
     
     
@@ -74,39 +74,43 @@ sudo rpm -e gpg-pubkey-f796ecb0
 sudo gpg --homedir /var/lib/yum/repos/$(uname -m)/$DIST/nvidia-container-runtime/gpgdir --delete-key f796ecb0
 
 sudo yum makecache
-``  
+```  
 8.   install nvidia-container-runtime  
 `sudo yum install nvidia-container-runtime`  
 9.  Docker Engine setup  
     *  Systemd drop-in file  
-    ```
-    sudo mkdir -p /etc/systemd/system/docker.service.d
+```
+sudo mkdir -p /etc/systemd/system/docker.service.d
     
-    sudo tee /etc/systemd/system/docker.service.d/override.conf <<EOF
-    [Service]
-    ExecStart=
-    ExecStart=/usr/bin/dockerd --host=fd:// --add-runtime=nvidia=/usr/bin/nvidia-container-runtime  
-    EOF
+sudo tee /etc/systemd/system/docker.service.d/override.conf <<EOF
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd --host=fd:// --add-runtime=nvidia=/usr/bin/nvidia-container-runtime  
+EOF
     
-    sudo systemctl daemon-reload
-    
-    sudo systemctl restart docker
-    ```  
+sudo systemctl daemon-reload
+  
+sudo systemctl restart docker
+```  
     *  Daemon configuration file  
-    ```
-    sudo tee /etc/docker/daemon.json <<EOF
-    {
-        "runtimes": {
-            "nvidia": {
-                "path": "/usr/bin/nvidia-container-runtime",
-                "runtimeArgs": []
-            }
+    
+```
+sudo tee /etc/docker/daemon.json <<EOF
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
         }
     }
-    EOF
-    ```  
-      `sudo pkill -SIGHUP dockerd`  
+}
+EOF
+
+sudo pkill -SIGHUP dockerd
+```
     *  Restart docker  
-    `sudo systemctl restart docker`  
+```
+sudo systemctl restart docker
+```  
 10.  Please refer to the following URL for any problems encountered when installing nvidia-container-runtime  
 #### https://github.com/NVIDIA/nvidia-container-runtime/
