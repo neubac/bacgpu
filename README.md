@@ -4,8 +4,10 @@ this is doc for CentOS os install nvidia GPU
 1. Download Centos iso
   *  https://vault.centos.org/7.8.2003/isos/x86_64/
   *  Install system with DVD installation
-2. update linux package
-  *  yum update
+2. update linux package  
+```
+yum update
+```  
 3. Download nvidia graphics card driver
   *  https://us.download.nvidia.com/XFree86/Linux-x86_64/450.80.02/NVIDIA-Linux-x86_64-450.80.02.run
   *  This url is for download 1650 GPU card . If you need other card please ask principal for driver
@@ -78,7 +80,9 @@ sudo gpg --homedir /var/lib/yum/repos/$(uname -m)/$DIST/nvidia-container-runtime
 sudo yum makecache
 ```  
 8.   install nvidia-container-runtime  
-`sudo yum install nvidia-container-runtime`  
+```
+sudo yum install nvidia-container-runtime
+```  
 9.  Docker Engine setup  
   *  Systemd drop-in file  
 ```
