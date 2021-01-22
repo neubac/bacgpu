@@ -122,7 +122,6 @@ sudo systemctl restart docker
 ```
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
 ```
 11.  Please refer to the following URL for any problems encountered when installing nvidia-container-runtime  
 #### https://github.com/NVIDIA/nvidia-container-runtime/
