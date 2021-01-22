@@ -118,5 +118,11 @@ sudo pkill -SIGHUP dockerd
 ```
 sudo systemctl restart docker
 ```  
-10.  Please refer to the following URL for any problems encountered when installing nvidia-container-runtime  
+10. add docker to sudo group
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+
+```
+11.  Please refer to the following URL for any problems encountered when installing nvidia-container-runtime  
 #### https://github.com/NVIDIA/nvidia-container-runtime/
